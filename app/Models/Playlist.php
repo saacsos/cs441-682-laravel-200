@@ -34,4 +34,19 @@ class Playlist extends Model
     {
         return $this->belongsToMany(Song::class);
     }
+
+    public function isPublic() : bool
+    {
+        return $this->accessibility === PlaylistAccessibility::PUBLIC;
+    }
+
+    public function isPrivate() : bool
+    {
+        return $this->accessibility === PlaylistAccessibility::PRIVATE;
+    }
+
+    public function isOwnedBy(User $user) : bool
+    {
+        return $this->user_id === $user->id;
+    }
 }

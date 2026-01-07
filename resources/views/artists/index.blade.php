@@ -4,13 +4,15 @@
 
     <h1 class="text-4xl mx-10 mb-2">Artist List</h1>
 
-    <div class="mx-10 my-2">
-        <a href="{{ route('artists.create') }}"
-           class="border px-4 py-2 bg-blue-200"
-        >
-            + Artist
-        </a>
-    </div>
+    @can('create', \App\Models\Artist::class)
+        <div class="mx-10 my-2">
+            <a href="{{ route('artists.create') }}"
+               class="border px-4 py-2 bg-blue-200"
+            >
+                + Artist
+            </a>
+        </div>
+    @endcan
 
     <ul class="mx-10">
         @foreach($artists as $artist)

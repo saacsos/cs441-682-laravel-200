@@ -53,12 +53,19 @@
                        class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 lg:dark:hover:text-white lg:dark:hover:bg-transparent">Features</a>
                 </li>
                 <li>
-                    <a href="#"
-                       class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 lg:dark:hover:text-white lg:dark:hover:bg-transparent">Team</a>
-                </li>
-                <li>
                     <a href="{{ url('/contact') }}"
                        class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 lg:dark:hover:text-white lg:dark:hover:bg-transparent">Contact</a>
+                </li>
+                <li>
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+
+                        <button type="submit"
+                                class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 lg:dark:hover:text-white lg:dark:hover:bg-transparent"
+                        >
+                            Log Out
+                        </button>
+                    </form>
                 </li>
             </ul>
         </div>
