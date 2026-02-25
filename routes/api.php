@@ -16,6 +16,8 @@ Route::middleware(['throttle:api'])->as('api.')->group(function () {
     })->name('root');
 
     Route::post('login', [AuthenticateController::class, 'login'])->name('user.login');
+    Route::get('artists/recommended', [ArtistController::class, 'recommended'])
+        ->name('artists.recommended');
 });
 
 
@@ -33,7 +35,18 @@ Route::middleware(['throttle:api', 'auth:sanctum'])->as('api.')->group(function 
         })->name('dashboard');
     });
 
+    Route::put('artists/recommended', [ArtistController::class, 'updateRecommended'])
+        ->name('artists.recommended');
     Route::apiResource('artists', ArtistController::class);
 
     Route::delete('revoke', [AuthenticateController::class, 'revoke'])->name('user.revoke');
 });
+
+
+
+
+
+
+
+
+
