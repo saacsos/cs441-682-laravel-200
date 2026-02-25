@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\ArtistController;
 use App\Http\Controllers\API\Auth\AuthenticateController;
+use App\Http\Controllers\API\PointController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -40,6 +41,15 @@ Route::middleware(['throttle:api', 'auth:sanctum'])->as('api.')->group(function 
     Route::apiResource('artists', ArtistController::class);
 
     Route::delete('revoke', [AuthenticateController::class, 'revoke'])->name('user.revoke');
+
+    Route::get('points', [PointController::class, 'index'])
+        ->name('points.index');
+    Route::get('point', [PointController::class, 'show'])
+        ->name('point.show');
+    Route::post('point', [PointController::class, 'earn'])
+        ->name('point.earn');
+    Route::put('point', [PointController::class, 'redeem'])
+        ->name('point.redeem');
 });
 
 
